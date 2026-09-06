@@ -28,7 +28,7 @@ public class SpringConfig {
                 .build();*/
 
         return http.authorizeHttpRequests(request -> request
-                        .requestMatchers("/journal/**").authenticated()
+                        .requestMatchers("/journal/createuser").authenticated()
                         .anyRequest().permitAll()).httpBasic(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .csrf(csrf -> csrf
