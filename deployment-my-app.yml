@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: ns2711/nippun.b18:03
+          image: ns2711/nippun.b18:20260926-2216
           ports:
             - containerPort: 80
         - name: redis
