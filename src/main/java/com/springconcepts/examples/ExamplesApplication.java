@@ -10,7 +10,7 @@ public class ExamplesApplication {
     private static Logger logger=LoggerFactory.getLogger(ExamplesApplication.class);
 	public static void main(String[] args) {
 		SpringApplication.run(ExamplesApplication.class, args);
-        logger.info("Started v5");
+        logger.info("Started v6");
 	}
 
 }
