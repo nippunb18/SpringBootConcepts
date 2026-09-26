@@ -1,0 +1,30 @@
+# Prerequisite: Argo CD is installed in the argocd namespace.
+# This Application reads the existing Kubernetes manifests from GitHub/main.
+# Commit and push any local manifest changes before syncing.
+# Register: kubectl apply -f argocd-application.yml
+# Deploy:   argocd app sync springboot-concepts
+# Reference: https://argo-cd.readthedocs.io/en/stable/user-guide/application-specification/
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: springboot-concepts
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/nippunb18/SpringBootConcepts.git
+    targetRevision: main
+    path: .
+    directory:
+      # Only load the workload manifests, excluding this Application itself.
+      include: '{deployment-my-app.yml,service-my-app.yml}'
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: springboot-concepts
+  syncPolicy:
+    # Sync manually using the command above or the Argo CD UI.
+    syncOptions:
+      - CreateNamespace=true
+automated:
+    selfHeal: true
+    prune: true
