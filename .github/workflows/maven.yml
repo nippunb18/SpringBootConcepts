@@ -43,5 +43,5 @@ jobs:
           file: ./Dockerfile
           push: ${{ github.event_name == 'push' }}
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/ns2711/nippun.b18:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/ns2711/nippun.b18:${{ github.sha }}
+            ${{ vars.DOCKERHUB_USERNAME }}/nippun.b18:latest
+            ${{ vars.DOCKERHUB_USERNAME }}/nippun.b18:${{ github.sha }}
